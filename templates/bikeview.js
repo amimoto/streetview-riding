@@ -1,21 +1,37 @@
+/*
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 var sv_pano;
 var sv_client;
 var sv_previous;
 var sv_current;
-var sv_heading           = 0;
-var sv_heading_tolerance = 15; // require at least 30 degrees before acceptance
+var sv_heading               = 0;
+var sv_heading_tolerance     = 15; // require at least 30 degrees before acceptance
 var sv_hmd_heading_tolerance = 30;
-var sv_node_distance     = 0;
-var sv_true_distance     = 0;
+var sv_node_distance         = 0;
+var sv_true_distance         = 0;
 
-var start_pov        = {yaw:0,pitch:0};
-var start_location   = new GLatLng(49.263048,-123.163694);
+var start_pov                = {yaw:0,pitch:0};
+var start_location           = new GLatLng(49.263048,-123.163694);
 
-var tics_last  = 0;
-var tics_start = new Date();
+var tics_last                = 0;
+var tics_start               = new Date();
 
-var tics_status_poll = 100;
-var poll_pause       = 1;
+var tics_status_poll         = 100;
+var poll_pause               = 1;
 
 $(function(){
 // Setup the objects
@@ -132,8 +148,6 @@ function node_move () {
           debug_log( "Distance away: " + sv_dest_distance + " and so far we have gone " 
                                        + node_distance + " on this node ");
           if ( sv_dest_distance > node_distance ) {
-          dev_log( "Distance away: " + sv_dest_distance + " and so far we have gone " 
-                                       + node_distance + " on this node ");
               continue;
           }
 
